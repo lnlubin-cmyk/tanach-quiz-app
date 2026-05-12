@@ -1,0 +1,112 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --font-sans: "Heebo", system-ui, sans-serif;
+  --font-display: "Frank Ruhl Libre", "Heebo", serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Parchment / warm temple palette */
+  --background: oklch(0.975 0.018 80);
+  --foreground: oklch(0.24 0.04 50);
+  --card: oklch(0.99 0.012 85);
+  --card-foreground: oklch(0.24 0.04 50);
+  --popover: oklch(0.99 0.012 85);
+  --popover-foreground: oklch(0.24 0.04 50);
+  --primary: oklch(0.42 0.10 45);            /* deep wine/oak */
+  --primary-foreground: oklch(0.98 0.012 85);
+  --secondary: oklch(0.92 0.03 80);
+  --secondary-foreground: oklch(0.30 0.06 50);
+  --muted: oklch(0.94 0.02 85);
+  --muted-foreground: oklch(0.48 0.04 60);
+  --accent: oklch(0.72 0.14 70);             /* gold */
+  --accent-foreground: oklch(0.22 0.04 50);
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --success: oklch(0.58 0.14 145);
+  --success-foreground: oklch(0.99 0.01 145);
+  --border: oklch(0.86 0.03 75);
+  --input: oklch(0.88 0.025 75);
+  --ring: oklch(0.55 0.10 60);
+
+  --gradient-parchment: linear-gradient(180deg, oklch(0.98 0.018 85), oklch(0.94 0.03 80));
+  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.14 75), oklch(0.62 0.14 55));
+  --shadow-warm: 0 10px 40px -10px oklch(0.30 0.08 50 / 0.25);
+  --shadow-soft: 0 2px 12px -4px oklch(0.30 0.08 50 / 0.15);
+}
+
+.dark {
+  --background: oklch(0.18 0.02 50);
+  --foreground: oklch(0.95 0.02 80);
+  --card: oklch(0.22 0.025 50);
+  --card-foreground: oklch(0.95 0.02 80);
+  --popover: oklch(0.22 0.025 50);
+  --popover-foreground: oklch(0.95 0.02 80);
+  --primary: oklch(0.78 0.14 75);
+  --primary-foreground: oklch(0.20 0.03 50);
+  --secondary: oklch(0.28 0.03 50);
+  --secondary-foreground: oklch(0.95 0.02 80);
+  --muted: oklch(0.26 0.025 50);
+  --muted-foreground: oklch(0.72 0.03 70);
+  --accent: oklch(0.72 0.14 70);
+  --accent-foreground: oklch(0.20 0.03 50);
+  --destructive: oklch(0.58 0.20 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  --success: oklch(0.65 0.14 145);
+  --success-foreground: oklch(0.15 0.02 145);
+  --border: oklch(0.32 0.03 50);
+  --input: oklch(0.32 0.03 50);
+  --ring: oklch(0.65 0.10 60);
+}
+
+html { direction: rtl; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background: var(--gradient-parchment);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern", "liga";
+  }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .bg-gradient-gold { background-image: var(--gradient-gold); }
+  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .text-balance { text-wrap: balance; }
+}
